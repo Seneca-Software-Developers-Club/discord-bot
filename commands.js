@@ -20,13 +20,13 @@ function createCommandChoices() {
 // Simple test command
 const TEST_COMMAND = {
   name: 'test',
-  description: 'Basic command blablablablal',
+  description: 'Basic command 1',
   type: 1,
 };
 
 // Simple test command
 const TEST_COMMAND2 = {
-  name: 'test3',
+  name: 'test2',
   description: 'Basic command 2',
   type: 1,
 };

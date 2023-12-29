@@ -27,10 +27,8 @@ export async function DiscordRequest(endpoint, options) {
       'Content-Type': 'application/json; charset=UTF-8',
       'User-Agent': 'DiscordBot (https://github.com/discord/discord-example-app, 1.0.0)',
     },
-    method: options.method,
-    body: options.body
+    ...options
   });
-  console.log(res)
   // throw API errors
   if (!res.ok) {
     const data = await res.json();
@@ -43,7 +41,7 @@ export async function DiscordRequest(endpoint, options) {
 
 export async function InstallGlobalCommands(appId, commands) {
   // API endpoint to overwrite global commands
-  const endpoint = `applications/appID/commands`;
+  const endpoint = `applications/${appID}/commands`;
   
   try {
     // This is calling the bulk overwrite endpoint: https://discord.com/developers/docs/interactions/application-commands#bulk-overwrite-global-application-commands

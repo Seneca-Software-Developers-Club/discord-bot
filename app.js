@@ -10,7 +10,6 @@ import {
 import { VerifyDiscordRequest, getRandomEmoji, DiscordRequest} from './utils.js';
 import { getShuffledOptions, getResult } from './game.js';
 
-//test Shrey
 // Create an express app
 const app = express();
 // Get port, or default to 3000
@@ -42,29 +41,34 @@ app.post('/interactions', async function (req, res) {
   if (type === InteractionType.APPLICATION_COMMAND) {
     const { name } = data;
 
-    // "test" command
     if (name === 'test') {
       // Send a message into the channel where command was triggered from
-      //updateCmds();
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
-          // Fetches a random emoji to send from a helper function
-          //content: 'TAKE THIS ASAL, I GOT IT!!!!! ' + getRandomEmoji(),getCommands(process.env.APP_ID);
-          content: `u suc`
+          content: `Testing command 1`
         },
       });
     }
-    
-    // "test2" command
+
     if (name === 'test2') {
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
-          content: "Im am testing the second test command",
+          content: `Testing command 2`,
         },
       });
     }
+
+    if (name === 'challange') {
+      return res.send({
+        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        data: {
+          content: `Game not set-up yet`,
+        },
+      });
+    }
+
   }
 });
 
